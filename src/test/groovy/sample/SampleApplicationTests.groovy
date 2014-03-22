@@ -84,25 +84,7 @@ public class SampleApplicationTests {
 
 	@Test
 	void testHome() throws Exception {
-		@SuppressWarnings("rawtypes")
-		ResponseEntity<Map> entity = getRestTemplate().getForEntity(
-				"http://localhost:8080", Map.class)
-		assertEquals(HttpStatus.OK, entity.getStatusCode())
-		@SuppressWarnings("unchecked")
-		Map<String, Object> body = entity.getBody()
-		assertEquals("Hello World", body.get("message"))
-	}
 
-	@Test
-	void testErrorPageDirectAccess() throws Exception {
-		@SuppressWarnings("rawtypes")
-		ResponseEntity<Map> entity = getRestTemplate().getForEntity(
-				"http://localhost:8080/error", Map.class)
-		assertEquals(HttpStatus.OK, entity.getStatusCode())
-		@SuppressWarnings("unchecked")
-		Map<String, Object> body = entity.getBody()
-		assertEquals("None", body.get("error"))
-		assertEquals(999, body.get("status"))
 	}
 
 	private String getPassword() {
