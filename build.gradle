@@ -5,7 +5,7 @@ apply plugin: "application"
 sourceCompatibility = "1.7"
 targetCompatibility = "1.7"
 
-version = "${version}"
+version = "0.0.1"
 group = "${group}"
 mainClassName = "sample.SampleApplication"
 
@@ -32,6 +32,7 @@ repositories {
     maven { url "http://repo.spring.io/milestone" }
     maven { url "http://repo.spring.io/snapshot" }
     maven { url "http://dl.bintray.com/berinle/maven" }
+    maven { url "file:${System.properties['user.home']}/.foa/repository" }
 }
 
 dependencies {
@@ -40,7 +41,7 @@ dependencies {
     compile "org.springframework.boot:spring-boot-starter-actuator"
     testCompile "org.springframework.boot:spring-boot-starter-test"
 
-    compile('app-ui:app-ui:0.0.1')
+    compile('jrock:app-ui:0.0.1')
 }
 
 task wrapper(type: Wrapper) {
